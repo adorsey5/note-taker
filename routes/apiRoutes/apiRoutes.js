@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const fs = require("fs");
+// const fs = require("fs");
+const noteLog = require("../../db/db.json");
 const {
   createNewNote,
   deleteNote,
   validateNote,
 } = require("../../lib/notesIndex");
-const noteLog = require("../../db/db.json");
 
 //GET request for notes
 router.get("/notes", (req, res) => {
