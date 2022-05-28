@@ -1,6 +1,10 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
+const noteBook = require("./db/db.json");
+
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+const apiRoutes = require("./routes/api");
+const htmlRoutes = require("./routes/html");
 
 const PORT = process.env.PORT || 3001;
 
@@ -9,23 +13,28 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//static 
-app.use(express.static('public'));
+//static
+app.use(express.static("public"));
 
-app.get('/', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/index.html'))
-);
+// app.get('/', (req, res) =>
+//     res.sendFile(path.join(__dirname, '/public/index.html'))
+// );
 
-app.get('/notes', (req, res) =>
-    res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
+// app.get('/notes', (req, res) =>
+//     res.sendFile(path.join(__dirname, '/public/notes.html'))
+// );
 
-app.get('/api/notes', (req, res) => {
-    fs.readFile("./db/db.json", "utf8", (err, jsonString) => {
-        newNotes = jsonString ? JSON.parse(jsonString) : [];
-        res.json(newNotes);
-    });
-})
+// app.get('/api/notes', (req, res) => {
+//     fs.readFile("./db/db.json", "utf8", (err, jsonString) => {
+//         initNotes = jsonString ? JSON.parse(jsonString) : [];
+//         res.json(initNotes);
+//     });
+// })
+
+//Use apiRoutes
+app.use("/api", apiRoutes);
+app.use("/", htmlRoutes);
+
 app.listen(PORT, () => {
-    console.log(`API server now on port ${PORT}!`);
+  console.log(`API server now on port ${PORT}!`);
 });
