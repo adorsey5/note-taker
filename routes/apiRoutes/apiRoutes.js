@@ -29,18 +29,17 @@ router.post("/notes", (req, res) => {
   let newNote = createNewNote(req.body, noteLog);
   res.json(newNote);
 
-  //GET request for notes
-  router.delete("/notes/:id", (req, res) => {
-    deleteNote(noteLog, req.params.id);
-    res.json(noteLog);
-  });
+  if (!validateNote(req.body)) {
+    res.status(400).send("Enter both a title and content for the note.");
+  } else {
+    const note = createNewNote(req.body, noteLog);
+    res.json(note);
+  }
 });
-
-if (!validateNote(req.body)) {
-  res.status(400).send("Enter both a title and content for the note.");
-} else {
-  const note = createNewNote(req.body, noteLog);
-  res.json(note);
-}
+//GET request for notes
+router.delete("/notes/:id", (req, res) => {
+  deleteNote(noteLog, req.params.id);
+  res.json(noteLog);
+});
 
 module.exports = router;
