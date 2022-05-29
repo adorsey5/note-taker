@@ -1,12 +1,1 @@
-[
-  null,
-  {
-    "title": "second note",
-    "text": "2nd note",
-    "id": {
-      "title": "new note",
-      "text": "first note",
-      "id": 0
-    }
-  }
-]
+[]
