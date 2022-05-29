@@ -1,17 +1,12 @@
 [
   null,
   {
-    "title": "ouhiuhih",
-    "text": "kjedkwer",
+    "title": "second note",
+    "text": "2nd note",
     "id": {
-      "title": "sdlksf",
-      "text": "lkdslf",
-      "id": "0"
+      "title": "new note",
+      "text": "first note",
+      "id": 0
     }
-  },
-  {
-    "title": "asdasd",
-    "text": "sdasdad",
-    "id": null
   }
 ]
