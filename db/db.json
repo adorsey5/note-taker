@@ -1,9 +1,27 @@
 {
   "noteArray": [
     {
-      "title": "h65",
-      "text": "hgg",
-      "id": 1
+      "title": "new note",
+      "text": "note 1",
+      "id": {
+        "title": "second note",
+        "text": "2nd note",
+        "id": {
+          "title": "new note",
+          "text": "first note",
+          "id": 0
+        }
+      }
+    },
+    {
+      "title": "new note",
+      "text": "note 2\n",
+      "id": null
+    },
+    {
+      "title": "new note",
+      "text": "note 1",
+      "id": null
     }
   ]
 }
